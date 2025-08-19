@@ -1,1 +1,25 @@
 #dbt run-operation generate_source --args '{"schema_name": "thelook_ecommerce", "database_name": "bigquery-public-data", "table_names": ["users", "products", "orders", "order_items"]}'
+
+version: 2
+
+sources:
+  - name: ecommerce  # Ce nom est celui que vous utiliserez dans la fonction source()
+    description: "Source de données brutes du jeu de données public TheLook E-commerce."
+    
+    # C'est la correction la plus importante : la base de données est le projet public de Google.
+    database: bigquery-public-data
+    schema: thelook_ecommerce
+    
+    # On liste ici toutes les tables que l'on veut utiliser depuis cette source.
+    tables:
+      - name: users
+        description: "Table brute des utilisateurs et de leurs informations."
+
+      - name: products
+        description: "Table brute des produits du catalogue."
+
+      - name: orders
+        description: "Table brute contenant chaque commande passée."
+
+      - name: order_items
+        description: "Table brute listant chaque article pour chaque commande."
