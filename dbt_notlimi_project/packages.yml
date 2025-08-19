@@ -1,0 +1,12 @@
+# ce package c'est pour les macros  que d'autre dev on fait 
+# Le package "codegen" est un utilitaire très pratique de dbt Labs.
+  # Il ne crée pas de modèles de données directement, mais fournit des "macros" (des outils)
+  # qui génèrent automatiquement du code répétitif pour un projet dbt.
+  # Par exemple, il peut :
+  #  1. Générer le fichier YAML pour un modèle en listant toutes ses colonnes.
+  #  2. Créer un modèle SQL de base ("staging") à partir d'une table source.
+packages:
+  - package: dbt-labs/codegen
+    version: 0.13.1
+
+  
