@@ -77,3 +77,19 @@ Runtime Error
 [0m15:04:52.708455 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105c37360>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105c3eb10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105ad99d0>]}
 [0m15:04:52.708604 [debug] [MainThread]: Flushing usage events
 [0m15:04:53.062961 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m11:46:29.456922 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10322fb60>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1058379d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105837b10>]}
+
+
+============================== 11:46:29.459772 | 869324ce-723a-41cb-abe3-6710421b366c ==============================
+[0m11:46:29.459772 [info ] [MainThread]: Running with dbt=1.10.9
+[0m11:46:29.460092 [debug] [MainThread]: running dbt with arguments {'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True', 'debug': 'False', 'profiles_dir': '/Users/diaw/.dbt', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'no_print': 'None', 'log_path': 'logs', 'printer_width': '80', 'log_cache_events': 'False', 'use_colors': 'True', 'empty': 'None', 'introspect': 'True', 'write_json': 'True', 'indirect_selection': 'eager', 'use_experimental_parser': 'False', 'invocation_command': 'dbt run-operation generate_source --args {"schema_name": "thelook_ecommerce", "database_name": "bigquery-public-data", "table_names": ["users", "products", "orders", "order_items"]}', 'static_parser': 'True', 'version_check': 'True', 'warn_error': 'None', 'partial_parse': 'True', 'cache_selected_only': 'False', 'quiet': 'False', 'fail_fast': 'False'}
+[0m11:46:29.460585 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /Users/diaw/Downloads/dbt_notlimitail/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m11:46:29.462056 [debug] [MainThread]: Resource report: {"command_name": "run-operation", "command_success": false, "command_wall_clock_time": 0.03956054, "process_in_blocks": "0", "process_kernel_time": 0.097133, "process_mem_max_rss": "106659840", "process_out_blocks": "0", "process_user_time": 0.616024}
+[0m11:46:29.462281 [debug] [MainThread]: Command `dbt run-operation` failed at 11:46:29.462234 after 0.04 seconds
+[0m11:46:29.462425 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104f37360>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104f3eb10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104ed99d0>]}
+[0m11:46:29.462578 [debug] [MainThread]: Flushing usage events
+[0m11:46:29.814842 [debug] [MainThread]: An error was encountered while trying to flush usage events
