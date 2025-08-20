@@ -34,10 +34,10 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   dbt_notlimi_project:
     # Cette configuration s'applique à tous les modèles
-    +materialized: view
+    +materialized: table
 
     # Configuration spécifique pour les dossiers
     staging:
-      +materialized: view
+      +materialized: table
     marts:
       +materialized: table
