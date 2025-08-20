@@ -11,7 +11,7 @@ renamed as (
     select
         -- Clés
         order_id,
-        customer_id, -- La colonne s'appelle customer_id, pas user_id
+        customer_id, -- La colonne s'appelle customer_id,
 
         -- Informations sur la commande
         order_status,

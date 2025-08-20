@@ -1,7 +1,8 @@
 version: 2
 
 sources:
-  - name: olist_ecommerce  # C'est le nouveau nom de notre source, plus clair.
+# C'est le nom de notre source, plus clair.
+  - name: olist_ecommerce  
     description: "Données brutes Olist E-commerce chargées depuis GCS."
     
     # On met le nom du dataset qui existe VRAIMENT dans BigQuery
@@ -11,6 +12,7 @@ sources:
     tables:
       - name: customers
       - name: orders
-      - name: orders_item      # <-- Corrigé (sans le "s")
+      - name: orders_item      
       - name: orders_payments
       - name: products
+      - name: sellers
