@@ -3,7 +3,7 @@
 with source as (
 
     -- On référence la table brute des paiements
-    select * from {{ source('olist_ecommerce', 'orders_payments') }}
+    select * from {{ source('olist_ecommerce', 'order_payments') }}
 
 ),
 

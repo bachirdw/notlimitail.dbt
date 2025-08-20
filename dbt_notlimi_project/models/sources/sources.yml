@@ -12,7 +12,7 @@ sources:
     tables:
       - name: customers
       - name: orders
-      - name: orders_item      
-      - name: orders_payments
+      - name: order_items     
+      - name: order_payments
       - name: products
       - name: sellers
