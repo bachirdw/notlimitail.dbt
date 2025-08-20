@@ -1,6 +1,8 @@
+-- DANS models/staging/ecommerce/stg_ecommerce__orders.sql
+
 with source as (
 
-    select * from {{ source('ecommerce', 'orders') }}
+    select * from {{ source('olist_ecommerce', 'orders') }}
 
 ),
 
@@ -9,19 +11,17 @@ renamed as (
     select
         -- Clés
         order_id,
-        user_id,
+        customer_id, -- La colonne s'appelle customer_id, pas user_id
 
         -- Informations sur la commande
-        status,
+        order_status,
         
         -- Horodatages
-        created_at as created_at_utc,
-        returned_at as returned_at_utc,
-        shipped_at as shipped_at_utc,
-        delivered_at as delivered_at_utc
-
-        -- Nous excluons intentionnellement num_of_item.
-        -- Nous le recalculerons dans la couche Silver pour garantir sa fiabilité.
+        order_purchase_timestamp,
+        order_approved_at,
+        order_delivered_carrier_date,
+        order_delivered_customer_date,
+        order_estimated_delivery_date
 
     from source
 
