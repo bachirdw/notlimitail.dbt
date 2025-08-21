@@ -1,3 +1,6 @@
+# pour générer la doc
+#dbt run-operation generate_source --args '{"schema_name": "notlimitail_datadubrazil", "table_names": ["customers", "orders", "order_item", "orders_payment", "products", "sellers"]}'
+
 version: 2
 
 sources:

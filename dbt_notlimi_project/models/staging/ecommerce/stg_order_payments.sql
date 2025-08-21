@@ -1,4 +1,4 @@
--- DANS models/staging/ecommerce/stg_ecommerce__order_payments.sql
+--
 
 with source as (
 

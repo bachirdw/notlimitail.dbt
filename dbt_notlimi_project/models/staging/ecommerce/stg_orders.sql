@@ -1,4 +1,4 @@
--- DANS models/staging/ecommerce/stg_ecommerce__orders.sql
+-- 
 
 with source as (
 
@@ -16,7 +16,7 @@ renamed as (
         -- Informations sur la commande
         order_status,
         
-        -- Horodatages
+        -- Lorsque l'on enregistre la date et l'heure d'un événement, on parle d'horodatage
         order_purchase_timestamp,
         order_approved_at,
         order_delivered_carrier_date,
