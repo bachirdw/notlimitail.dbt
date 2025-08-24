@@ -19,3 +19,5 @@ sources:
       - name: order_payments
       - name: products
       - name: sellers
+      - name: campaigns
+      - name: ad_events
