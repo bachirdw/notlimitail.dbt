@@ -1,0 +1,16 @@
+campaign_id,campaign_name,start_date,end_date,product_category
+
+0,Rentrée 2016,2016-09-01,2016-09-30,esporte_lazer
+0.5,Octobre Promo 2016,2016-10-01,2016-10-31,beleza_saude
+1,Black Friday 2016,2016-11-01,2016-11-30,relogios_presentes
+2,Noel 2016,2016-12-01,2016-12-24,beleza_saude
+
+
+3,Soldes Hiver 2017,2017-01-10,2017-02-28,cama_mesa_banho
+4,Promo Ete 2017,2017-06-01,2017-08-31,esporte_lazer
+5,Black Friday 2017,2017-11-01,2017-11-30,informatica_acessorios
+6,Noel 2017,2017-12-01,2017-12-24,utilidades_domesticas
+7,Saint Valentin 2018,2018-01-20,2018-02-14,perfumaria
+8,Fete des Meres 2018,2018-04-15,2018-05-15,moveis_decoracao
+
+

@@ -3,21 +3,111 @@
 
 version: 2
 
+
+# DÉFINITION DES SOURCES
+# C'est ici  les tables brutes de mon data warehouse.
+
+
 sources:
-# C'est le nom de notre source, plus clair.
-  - name: olist_ecommerce  
+  - name: olist_ecommerce
     description: "Données brutes Olist E-commerce chargées depuis GCS."
-    
-    # On met le nom du dataset qui existe VRAIMENT dans BigQuery
+    # Le nom du dataset (schéma) dans BigQuery où se trouvent les tables
     schema: notlimitail_datadubrazil
-    
-    # On liste les tables avec leurs noms exacts
     tables:
       - name: customers
       - name: orders
-      - name: order_items     
+      - name: order_items
       - name: order_payments
       - name: products
       - name: sellers
       - name: campaigns
       - name: ad_events
+
+# DÉFINITION DES MODÈLES
+# C'est ici quon vous documente et testezles modèles   créés.
+models:
+  - name: int_dim_orders
+    description: "Modèle dimensionnel pour les commandes."
+    columns:
+      - name: order_id
+        description: "Clé primaire unique de la commande."
+        tests:
+          - unique
+          - not_null
+
+      - name: user_id
+        description: "Clé étrangère vers la table des utilisateurs."
+        tests:
+          - not_null
+
+      - name: status
+        description: "Statut de la commande."
+        tests:
+          - accepted_values:
+              values: ['completed', 'shipped', 'returned', 'pending', 'cancelled']
+
+  - name: int_dim_ad_events
+    description: "Modèle pour les événements publicitaires."
+    columns:
+      - name: event_id
+        description: "Clé primaire unique de l'événement."
+        tests:
+          - unique
+          - not_null
+
+      - name: event_type
+        description: "Type d'événement publicitaire (ex: click, view)."
+        tests:
+          - not_null
+
+      - name: campaign_id
+        description: "Clé étrangère vers la table des campagnes."
+        tests:
+          - not_null
+          # Teste si chaque campaign_id dans ce modèle existe bien
+          # dans la colonne campaign_id du modèle int_dim_campaigns.
+          - relationships:
+              to: ref('int_dim_campaigns')
+              field: campaign_id
+
+  # N'oubliez pas d'ajouter aussi la documentation pour votre modèle de campagnes !
+  - name: int_dim_campaigns
+    description: "Modèle dimensionnel pour les campagnes marketing."
+    columns:
+      - name: campaign_id
+        description: "Clé primaire unique de la campagne."
+        tests:
+          - unique
+          - not_null
+
+# AJOUT : DOCUMENTATION DE LA TABLE DE FAITS POUR VOIR LES LIENS
+
+  # pour génerer de la doc                dbt docs generate
+  # pourlancer la doc                     dbt docs serve
+  - name: fct_marketing_performance # <-- Remplacez par le nom de votre fichier SQL
+    description: "Table de faits qui agrège les métriques de performance marketing par jour et par campagne."
+    columns:
+      - name: event_date
+        description: "Date à laquelle les événements ont eu lieu. Clé pour la jointure avec une dimension de temps."
+
+      - name: campaign_id
+        description: "Clé étrangère qui lie à la dimension des campagnes."
+        tests:
+          - not_null
+         
+          # Il vérifie que chaque campaign_id ici existe bien dans la table int_dim_campaigns.
+          - relationships:
+              to: ref('int_dim_campaigns')
+              field: campaign_id
+
+      - name: impressions
+        description: "Nombre total d'impressions publicitaires."
+
+      - name: clicks
+        description: "Nombre total de clics publicitaires."
+
+      - name: total_orders
+        description: "Nombre total de commandes attribuées à ce jour."
+        
+      - name: total_revenue
+        description: "Revenu total généré par les commandes attribuées à ce jour."
